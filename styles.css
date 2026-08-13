@@ -1,0 +1,61 @@
+/* Remove margens padrão */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Remove espaço branco do container do Rmd */
+.main-container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Banner */
+.top-banner {
+  background: linear-gradient(90deg, #b06ab3, #5f9cff);
+  color: white;
+  text-align: center;
+  padding: 60px 20px 80px 20px;
+}
+
+/* Conteúdo do banner */
+.banner-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.banner-content h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.banner-content p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+.banner-content .date {
+  margin-top: 25px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Caixa branca */
+.content-box {
+  background: white;
+  max-width: 900px;
+  margin: -50px auto 40px auto;
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Títulos */
+h2 {
+  font-weight: 700;
+  color: #333;
+}

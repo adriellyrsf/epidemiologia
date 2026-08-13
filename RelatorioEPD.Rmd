@@ -1,0 +1,892 @@
+---
+title: ""
+output:
+  html_document:
+    code_folding: hide
+    css: styles.css
+    toc: false
+---
+
+<div class="top-banner">
+<div class="banner-content">
+<h1>Análise Epidemiológica Ecológica das Ocorrências de Suicídio no Brasil (2010–2019)</h1>
+
+<p>
+Universidade Estadual da Paraíba - UEPB <br>
+Disciplina: Epidemiologia <br>
+Docente: Fernanda Clotilde <br>
+Discentes: Adrielly Rocha, Manoel Alves e Vinicius Crispim
+</p>
+
+<p class="date">03 de Março de 2026</p>
+</div>
+</div>
+
+<div class="content-box">
+
+<div style="text-align: justify;">
+
+## 1. Introdução
+
+\
+
+O suicídio é um sério problemas enfrentado por todos os países do mundo, sendo que, no Brasil, as taxas apresentam níveis muito mais alarmantes. Embora que, em escala global, os números de suicídio tenham apresentado redução nas últimas décadas, um estudo realizado em 2015 demonstrou que, entre os anos de 2000 e 2019, ocorreram 195.047 novos casos de mortes por suicídio no país, representando um aumento de 57%. Apenas em 2022, o Brasil registrou uma média de 44 suicídios por dia.
+
+De acordo com dados do BRASIL (2024), estima-se que mais de 700 mil pessoas morram por suicídio a cada ano no mundo. Na população geral, calcula-se que, para cada pessoa que morre por suicídio, mais outras 20 tentam dar fim à própria vida, além de impactar diretamente, em média, cinco a seis pessoas próximas, que sofrem consequências emocionais, sociais e econômicas.
+
+Ainda no Brasil, em 2021, foram notificados 15.507 casos de suicídio, configurando-se como a segunda principal causa de morte entre adolescentes de 15 a 19 anos e a quarta principal entre jovens de 20 a 29 anos. Observa-se ainda que a taxa de suicídio entre homens é aproximadamente três vezes maior do que entre mulheres. Entre os homens, as taxas aumentam progressivamente com a idade, atingindo seu pico entre idosos com mais de 70 anos, enquanto entre as mulheres o risco mais elevado ocorre entre adolescentes de 15 a 19 anos.
+
+Autoridades brasileiras também destacam que a taxa de suicídio entre a população indígenas no Brasil é três vezes maior que a observada na população geral. Em relação à localização geográfica, os estados brasileiros com maiores taxas de suicídio em 2021 foram Rio Grande do Sul, Piauí, Mato Grosso do Sul, Roraima, Santa Catarina e Tocantins. Entretanto, o comportamento suicida pode ocorrer em pessoas de diferentes origens, condições socioeconômicas, idades, configurações familiares, orientações sexuais e identidades de gênero, estando geralmente associado a uma dor emocional profunda percebida como insuportável, intolerável e inescapável, conceito conhecido como os “três i’s” do suicídio.
+
+Dessa forma, suicídio também pode ser compreendido como um fenômeno de interesse da Epidemiologia, pois seu estudo envolve a análise da ocorrência e da distribuição dos casos na população, bem como dos fatores associados ao evento. A partir da abordagem epidemiológica, torna-se possível identificar grupos mais vulneráveis, fatores de risco e padrões de ocorrência ao longo do tempo e entre diferentes regiões. Essas informações são fundamentais para compreender a dimensão do problema como questão de saúde pública e auxiliar no desenvolvimento de estratégias de prevenção e intervenção.
+
+\
+
+## 2. Objetivo
+
+\
+
+Analisar o comportamento das ocorrências de suicídio no Brasil no período de 2010 a 2019, por meio de técnicas estatísticas descritivas, análise de séries temporais, análise espacial e modelagem por regressão para dados de contagem, com o intuito de compreender a evolução temporal dos casos, sua distribuição geográfica entre os estados brasileiros e a associação com variáveis sociodemográficas, buscando identificar padrões epidemiológicos e fatores relacionados às ocorrências registradas no período estudado.
+
+\
+
+## 3. Materiais
+
+\
+
+Os dados utilizados nesta análise foram obtidos a partir de um banco de dados de domínio público disponibilizado na plataforma *Kaggle*, que reúne informações sobre ocorrências de suicídio registradas no Brasil durante o período de 2010 a 2019.
+
+O banco contém variáveis sociodemográficas e epidemiológicas relacionadas aos casos de suicidio, incluindo informações como estado, ano, mês do óbito, data de nascimento, sexo, raça/cor, escolaridade, estado civil, ocupação, município de residência, causa básica do óbito, local de ocorrência e outras características associadas as ocorrências.
+
+Importamte destacar que trata-se de um banco de dados secundários, utilizado para análise estatística do perfil epidemiológico referente aos casos de suicídio no país durante o período analisado. Esses dados são de acesso público e foram obtidos por meio do endereço eletrônico: <https://www.kaggle.com/datasets/psicodata/dados-de-suicidios-entre-2010-e-2019>.
+
+\
+
+## 4. Métodos
+
+\
+
+Trata-se de um estudo epidemiológico ecológico, observacional, descritivo e retrospectivo, baseado na análise de dados secundários referentes aos casos de suicídio registrados no Brasil no período de 2010 a 2019. O estudo caracteriza-se como ecológico por utilizar unidades de análise agregadas, examinando a distribuição e a frequência dos casos segundo variáveis temporais e geográficas, sem identificação ou intervenção direta sobre indivíduos, buscando descrever padrões populacionais ao longo do tempo.
+
+Inicialmente será realizada uma análise descritiva dos dados, com o objetivo de compreender a estrutura do banco de dados e o comportamento das variáveis disponíveis. Nessa etapa serão construídas tabelas de frequência, medidas-resumo e outras formas de organização dos dados, permitindo identificar padrões gerais, variações ao longo do período estudado e possíveis diferenças entre grupos. Essa exploração inicial auxilia na verificação de consistência das informações e fornece uma visão geral das ocorrências registradas.
+
+Em seguida, serão aplicadas técnicas de análise de séries temporais para avaliar a evolução do número de ocorrências de suicídio ao longo do período analisado. Essa etapa busca identificar tendências, possíveis variações ao longo do tempo e padrões presentes na série histórica. A partir dessas técnicas, torna-se possível observar o comportamento temporal das ocorrências e compreender como os registros se distribuem ao longo dos anos.
+
+Posteriormente, será realizada uma análise espacial, com a finalidade de observar a distribuição geográfica das ocorrências no território brasileiro. Para isso, serão elaborados mapas temáticos que representam o número de casos por estado. Essa abordagem permite visualizar padrões espaciais, destacando regiões com maiores ou menores concentrações de ocorrências e contribuindo para uma melhor compreensão da distribuição do fenômeno no país.
+
+Por fim, será empregada a análise de regressão, com o objetivo de ajustar um modelo estatístico adequado aos dados e identificar fatores associados à ocorrência de suicídios. Nessa etapa serão avaliados os pressupostos necessários para a aplicação do modelo escolhido, bem como a adequação do ajuste. A partir dessa análise, busca-se verificar quais variáveis apresentam influência significativa na ocorrência do evento em estudo.
+
+\
+
+## 5. Análise Descritiva
+
+\
+
+### **5.1 Pacotes Utilizados**
+
+```{r Pacotes, class.source="fold-show", message=FALSE, warning=FALSE}
+
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(geobr)
+library(tidyr)
+library(viridis)
+library(kableExtra)
+library(car)
+library(ResourceSelection)
+library(pscl)
+library(forcats)
+library(MASS)
+library(readxl)
+library(stringr)
+
+```
+
+\
+
+### **5.2 Importação e Visualização dos Dados**
+
+```{r Dados, message=FALSE, warning=FALSE}
+
+# Importar CSV
+dados <- read.csv("suicidios_2010_a_2019.csv",
+                  sep = ";",
+                  fileEncoding = "latin1",
+                  stringsAsFactors = FALSE)
+
+# Primeiras linhas
+head(dados)
+
+```
+
+\
+
+### **5.3 Elaboração da Categoria Idade**
+
+```{r Categoria Idade, class.source="fold-show", message=FALSE, warning=FALSE}
+
+dados$DTOBITO = as.Date(dados$DTOBITO, format = "%d/%m/%Y")
+dados$DTNASC = as.Date(dados$DTNASC, format = "%d/%m/%Y")
+
+# Idade do indivíduo na data do óbito
+dados$idade <- as.numeric(difftime(dados$DTOBITO, dados$DTNASC, units = "days"))/365.25
+
+# Faixa etária do indivíduo na data do óbito
+dados$faixa = cut(dados$idade,
+                  breaks = c(0, 14, 19, 29, 39, 49, 59, 69, 79, 100),
+                  right = FALSE)
+
+```
+
+\
+
+### **5.4 Tabela de Ocorrências por Ano e Estado**
+
+```{r Tabela 1, message=FALSE, warning=FALSE}
+
+tabela_ano_estado <- dados %>%
+  count(ano, estado) %>%
+  tidyr::pivot_wider(
+    names_from = estado,
+    values_from = n,
+    values_fill = 0
+  )
+
+knitr::kable(
+  tabela_ano_estado,
+  col.names = c("", names(tabela_ano_estado)[-1]),
+  caption = "**Ocorrências de suicídio por ano e estado (2010–2019)**",
+  align = "c"
+) %>%
+  kableExtra::kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped","hover","condensed","responsive"),
+    font_size = 14
+  ) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::column_spec(1, bold = TRUE) %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+
+```
+
+\
+
+A tabela apresenta a evolução das ocorrências de suicídio por ano e por estado no Brasil entre 2010 e 2019, revelando uma tendência geral de crescimento ao longo da década. Observa-se que, em praticamente todos os estados, os números aumentam de forma gradual, com pequenas oscilações anuais. O total de casos é significativamente mais elevado nos estados mais populosos, indicando possível relação entre tamanho da população e número absoluto de ocorrências. Além disso, a partir de 2016 percebe-se uma intensificação mais clara do crescimento em diversas unidades da federação, culminando em 2019 como um dos anos com maiores registros na maioria dos estados.
+
+Entre os estados com números mais altos ao longo de todo o período destacam-se São Paulo, Minas Gerais e Rio Grande do Sul, que mantêm patamares elevados e trajetória predominantemente ascendente. São Paulo apresenta os maiores valores absolutos em todos os anos, com crescimento expressivo entre 2010 e 2019. Minas Gerais e Rio Grande do Sul também registram aumento consistente, reforçando a concentração dos casos nas regiões Sudeste e Sul. Em contrapartida, estados com menor população, especialmente das regiões Norte e Nordeste, exibem números absolutos mais baixos, embora também apresentem tendência de crescimento ao longo do tempo, o que sugere que o fenômeno é nacional e não restrito a uma região específica.
+
+\
+
+### **5.5 Tabela de Frêquencia das Variavéis**
+
+```{r Tabela 2, message=FALSE, warning=FALSE}
+
+variaveis <- c("SEXO","faixa","RACACOR","ESTCIV","LOCOCOR")
+
+gerar_tabela <- function(var){
+  
+  dados %>%
+    dplyr::count(.data[[var]]) %>%
+    dplyr::mutate(
+      Percentual = round(100 * n / sum(n), 1),
+      Variavel = var
+    ) %>%
+    dplyr::rename(Categoria = 1) %>%
+    dplyr::mutate(
+  Categoria = ifelse(is.na(Categoria), "Não informado", as.character(Categoria)),
+  Categoria = dplyr::recode(
+    Categoria,
+    
+    # Faixa etária
+    "[0,14)"  = "0 a 13 anos",
+    "[14,19)" = "14 a 18 anos",
+    "[19,29)" = "19 a 28 anos",
+    "[29,39)" = "29 a 38 anos",
+    "[39,49)" = "39 a 48 anos",
+    "[49,59)" = "49 a 58 anos",
+    "[59,69)" = "59 a 68 anos",
+    "[69,79)" = "69 a 78 anos",
+    "[79,100)" = "79 a 99 anos",
+    
+    # Estado civil
+    "Casado/a" = "Casado(a)",
+    "Separado/a judicialmente" = "Separado(a) judicialmente",
+    "Solteiro/a" = "Solteiro(a)",
+    "Uniao consensual" = "União estável",
+    "Viuvo/a" = "Viúvo(a)",
+    
+    # Raça/cor
+    "Indigena" = "Indígena"
+  ),
+  
+  Variavel = dplyr::recode(
+    Variavel,
+    "SEXO" = "Gênero",
+    "faixa" = "Faixa etária",
+    "RACACOR" = "Raça/cor",
+    "ESTCIV" = "Estado civil",
+    "LOCOCOR" = "Local do evento"
+  )
+) %>%
+    dplyr::select(Variavel, Categoria, n, Percentual)
+}
+
+tabela_perfil <- dplyr::bind_rows(lapply(variaveis, gerar_tabela))
+
+tabela_final <- tabela_perfil %>%
+  dplyr::group_by(Variavel) %>%
+  dplyr::mutate(
+    Variavel = ifelse(dplyr::row_number() == 1, Variavel, ""),
+    Categoria = ifelse(dplyr::row_number() == 1,
+                       Categoria,
+                       paste0("   ", Categoria))
+  ) %>%
+  dplyr::ungroup()
+
+knitr::kable(
+  tabela_final,
+  col.names = c("Variável","Categoria","Frequência","Percentual (%)"),
+  caption = "**Perfil epidemiológico dos óbitos por suicídio (2010–2019)**",
+  align = "lccc"
+) %>%
+  kableExtra::kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped","hover","condensed","responsive"),
+    font_size = 14
+  ) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::column_spec(1, bold = TRUE)
+
+```
+
+\
+
+### **5.6 Perfil Epidemiológico dos Indivíduos**
+
+\
+
+#### **Gênero**
+
+```{r Grafico 1, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados %>%
+  mutate(SEXO = fct_explicit_na(SEXO, na_level = "Não informado")) %>%
+  ggplot(aes(x = SEXO, fill = SEXO)) +
+  
+  geom_bar(width = 0.6, color = "black") +
+  
+  labs(
+    title = "Frequência de suicídio segundo o gênero",
+    x = "Sexo",
+    y = "Número de Óbitos",
+    fill = "Sexo"
+  ) +
+  
+  scale_fill_manual(values = c(
+    "Masculino" = "#4E79A7",
+    "Feminino" = "#E15759",
+    "Não informado" = "#B0B0B0"
+  )) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+O gráfico apresenta a distribuição da frequência de óbitos por suicídio segundo o gênero dos indivíduos no banco de dados analisado. Observa-se uma forte predominância de casos no sexo masculino, cuja quantidade de registros é muito superior à observada no sexo feminino. Enquanto os homens concentram aproximadamente 88 mil ocorrências, as mulheres somam cerca de 24 mil casos, indicando que o número de mortes masculinas é mais de três vezes maior. Essa diferença evidencia um padrão bastante marcado na distribuição dos óbitos, sugerindo que o fenômeno ocorre de forma significativamente mais frequente entre homens no período considerado.
+
+Além disso, o gráfico inclui uma pequena coluna correspondente aos registros classificados como “Não informado”, que representa os casos em que o sexo não foi preenchido no banco de dados. A altura reduzida dessa barra mostra que a quantidade de informações ausentes é mínima (pouco mais de vinte registros) quando comparada ao total de observações, indicando boa completude dessa variável e baixa influência dos dados faltantes na interpretação geral dos resultados.
+
+\
+
+#### **Faixa Etária**
+
+```{r Grafico 2, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados <- dados %>%
+  mutate(
+    faixa = case_when(
+      idade >= 0  & idade <= 13 ~ "0 a 13 anos",
+      idade >= 14 & idade <= 18 ~ "14 a 18 anos",
+      idade >= 19 & idade <= 28 ~ "19 a 28 anos",
+      idade >= 29 & idade <= 38 ~ "29 a 38 anos",
+      idade >= 39 & idade <= 48 ~ "39 a 48 anos",
+      idade >= 49 & idade <= 58 ~ "49 a 58 anos",
+      idade >= 59 & idade <= 68 ~ "59 a 68 anos",
+      idade >= 69 & idade <= 78 ~ "69 a 78 anos",
+      idade >= 79 & idade <= 99 ~ "79 a 99 anos",
+      TRUE ~ "Não informado"
+    )
+  )
+
+dados$faixa <- factor(
+  dados$faixa,
+  levels = c(
+    "0 a 13 anos",
+    "14 a 18 anos",
+    "19 a 28 anos",
+    "29 a 38 anos",
+    "39 a 48 anos",
+    "49 a 58 anos",
+    "59 a 68 anos",
+    "69 a 78 anos",
+    "79 a 99 anos",
+    "Não informado"
+  )
+)
+
+ggplot(dados, aes(x = faixa, fill = faixa)) +
+  geom_bar(width = 0.7, color = "black") +
+  labs(
+    title = "Frequência de suicídio segundo a faixa etária",
+    x = "Faixa Etária",
+    y = "Número de Óbitos"
+  ) +
+  scale_fill_manual(values = c(
+  viridisLite::magma(9),
+  "grey70"
+)) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+O gráfico mostra a distribuição dos óbitos por suicídio segundo as faixas etárias, evidenciando que a ocorrência é pouco frequente nas idades mais jovens, especialmente entre 0 e 13 anos, e aumenta gradualmente a partir da adolescência. O número de casos cresce de forma mais acentuada no início da vida adulta, atingindo seu ponto mais elevado nas faixas de 19 a 28 anos e principalmente 29 a 38 anos, indicando maior concentração de ocorrências entre jovens adultos e indivíduos em idade economicamente ativa.
+
+Após esse período, observa-se uma redução progressiva da frequência conforme a idade avança, com diminuição dos registros a partir dos 39 anos e queda mais evidente nas faixas etárias mais idosas. Destaca-se ainda a categoria “Não informado”, que apresenta quantidade elevada de casos, sugerindo presença relevante de dados sem registro de idade, o que pode limitar parcialmente a interpretação da distribuição etária. De modo geral, o gráfico indica que os óbitos concentram-se predominantemente na fase adulta, com menor participação relativa entre crianças e idosos.
+
+\
+
+#### **Raça/Cor**
+
+```{r Grafico 3, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados %>%
+  mutate(
+    RACACOR = fct_explicit_na(RACACOR, "Não informado"),
+    RACACOR = fct_recode(
+      RACACOR,
+      "Indígena" = "Indigena"
+    )
+  ) %>%
+  ggplot(aes(x = RACACOR, fill = RACACOR)) +
+  
+  geom_bar(width = 0.7, color = "black") +
+  
+  labs(
+    title = "Frequência de suicídio segundo a raça/cor",
+    x = "Raça/Cor",
+    y = "Número de Óbitos"
+  ) +
+  
+  scale_fill_manual(values = c(
+    "Branca" = "#4E79A7",
+    "Preta" = "#E15759",
+    "Parda" = "#76B7B2",
+    "Amarela" = "#F28E2B",
+    "Indígena" = "#59A14F",
+    "Não informado" = "#B0B0B0"
+  )) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O gráfico apresenta a distribuição da frequência de óbitos por suicídio segundo a raça/cor dos indivíduos, permitindo observar diferenças relevantes entre os grupos analisados. Nota-se que a maior concentração de casos ocorre entre indivíduos classificados como pardos, seguidos pelos indivíduos de raça/cor branca, indicando que esses dois grupos concentram a maior parte dos registros no banco de dados. As categorias preta, amarela e indígena apresentam frequências consideravelmente menores em comparação às anteriores, demonstrando participação proporcionalmente reduzida no total de ocorrências.
+
+Além disso, observa-se a presença da categoria “Não informado”, que representa os casos em que a informação de raça/cor não foi registrada. A existência dessa parcela de dados ausentes indica limitações no preenchimento do banco e deve ser considerada na interpretação dos resultados, pois pode influenciar a distribuição observada entre os grupos. De modo geral, o gráfico evidencia uma concentração dos óbitos em determinados segmentos populacionais, ao mesmo tempo em que ressalta a importância da qualidade do registro das informações sociodemográficas para análises epidemiológicas mais precisas.
+
+\
+
+#### **Estado Civil**
+
+```{r Grafico 4, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados %>%
+  mutate(
+    ESTCIV = fct_explicit_na(ESTCIV, "Não informado"),
+    ESTCIV = fct_recode(
+      ESTCIV,
+      "Solteiro(a)" = "Solteiro/a",
+      "Casado(a)" = "Casado/a",
+      "Viúvo(a)" = "Viuvo/a",
+      "Separado(a) judicialmente" = "Separado/a judicialmente",
+      "União estável" = "Uniao consensual"
+    )
+  ) %>%
+  ggplot(aes(x = ESTCIV, fill = ESTCIV)) +
+  
+  geom_bar(width = 0.7, color = "black") +
+  
+  labs(
+    title = "Frequência de suicídio segundo o estado civil",
+    x = "Estado Civil",
+    y = "Número de Óbitos"
+  ) +
+  
+  scale_fill_manual(values = c(
+    "Solteiro(a)" = "#4E79A7",
+    "Casado(a)" = "#59A14F",
+    "Viúvo(a)" = "#E15759",
+    "Separado(a) judicialmente" = "#F28E2B",
+    "União estável" = "#B07AA1",
+    "Não informado" = "#B0B0B0"
+  )) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O gráfico apresenta a distribuição da frequência de óbitos por suicídio segundo o estado civil dos indivíduos, evidenciando diferenças importantes entre as categorias analisadas. Observa-se que a maior concentração de casos ocorre entre indivíduos solteiros(as), indicando que esse grupo representa a parcela mais expressiva dos registros no banco de dados. Em seguida, aparecem os indivíduos casados(as), com número considerável de ocorrências, porém inferior ao observado entre solteiros, sugerindo uma distribuição desigual dos casos conforme o estado civil.
+
+As categorias viúvos(as), separados(as) judicialmente e indivíduos em união estável apresentam frequências menores quando comparadas aos dois grupos principais, indicando participação relativamente reduzida no total de registros. Além disso, a presença da categoria “Não informado” revela a existência de casos sem registro do estado civil, o que aponta para limitações no preenchimento dos dados e deve ser considerado na análise dos resultados. De modo geral, o gráfico sugere que os óbitos se concentram predominantemente entre pessoas sem vínculo conjugal formal, ao mesmo tempo em que evidencia a importância das características sociodemográficas na compreensão da distribuição do fenômeno estudado.
+
+\
+
+#### **Local do Evento**
+
+```{r Grafico 5, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados %>%
+  mutate(LOCOCOR = fct_explicit_na(LOCOCOR, "Não informado")) %>%
+  ggplot(aes(x = LOCOCOR, fill = LOCOCOR)) +
+  
+  geom_bar(width = 0.7, color = "black") +
+  
+  labs(
+    title = "Frequência de suicídio segundo o local do evento",
+    x = "Local do Evento",
+    y = "Número de Óbitos"
+  ) +
+  
+  scale_fill_manual(values = c(
+    "Domicílio" = "#4E79A7",
+    "Hospital" = "#59A14F",
+    "Via pública" = "#E15759",
+    "Outros estabelecimentos de saúde" = "#F28E2B",
+    "Outro" = "#B07AA1",
+    "Não informado" = "#B0B0B0"
+  )) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 35, hjust = 1),
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O gráfico apresenta a distribuição da frequência de óbitos por suicídio segundo o local de ocorrência do evento, permitindo identificar onde os casos acontecem com maior predominância. Observa-se que a maior parte dos registros ocorre no domicílio, indicando que esse é o principal local associado aos óbitos analisados. Esse resultado sugere que os eventos tendem a acontecer em ambientes privados, possivelmente relacionados à maior permanência dos indivíduos nesse espaço e à menor intervenção imediata de terceiros. Em contraste, locais como hospitais, vias públicas e outros estabelecimentos de saúde apresentam frequências menores, demonstrando participação menos expressiva no total de ocorrências.
+
+Além disso, há registros classificados como “Outro” e “Não informado”, que representam situações em que o local não se enquadra nas categorias principais ou não foi devidamente registrado no banco de dados. A presença desses casos evidencia limitações no preenchimento das informações e indica a necessidade de cautela na interpretação completa da distribuição espacial dos eventos. De modo geral, o gráfico revela uma forte concentração dos óbitos no ambiente domiciliar, destacando a importância de considerar o contexto doméstico nas análises epidemiológicas e nas estratégias de prevenção relacionadas ao fenômeno estudado.
+
+\
+
+#### **Top 10 Profissões com Maiores Números de Registros**
+
+```{r Grafico 6, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados_limpos <- subset(dados, OCUP != "IGNORADA")
+
+top10 <- sort(table(dados_limpos$OCUP), decreasing = TRUE)[1:10]
+
+top10_df <- data.frame(
+  Profissao = names(top10),
+  Frequencia = as.numeric(top10)
+)
+
+ggplot(top10_df,
+       aes(x = reorder(Profissao, Frequencia),
+           y = Frequencia,
+           fill = Frequencia)) +
+  
+  geom_bar(stat = "identity", width = 0.7, color = "black") +
+  
+  coord_flip() +
+  
+  labs(
+    title = "Top 10 profissões\ncom mais óbitos",
+    x = "Profissão",
+    y = "Número de Óbitos"
+  ) +
+  
+  scale_fill_gradient(
+    low = "#CFE1F2",
+    high = "#2C6BAA"
+  ) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    legend.position = "none",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O gráfico apresenta o ranking das dez profissões com maior número de óbitos por suicídio no período analisado, evidenciando diferenças expressivas entre os grupos ocupacionais. Observa-se que as maiores frequências concentram-se entre aposentados/pensionistas e estudantes, que aparecem com valores bastante próximos e superiores às demais categorias. Em seguida, destacam-se donas de casa e trabalhadores agropecuários em geral, também com números elevados, indicando uma concentração relevante de casos nesses grupos. A predominância dessas ocupações sugere que tanto indivíduos fora do mercado formal de trabalho quanto aqueles inseridos em atividades rurais ou domésticas representam parcelas importantes dos registros observados.
+
+As demais profissões apresentam frequências menores, com queda gradual no número de ocorrências entre empregados domésticos, desempregados crônicos, trabalhadores ligados à produção agrícola e ocupações autônomas, até chegar às categorias com menor número de registros dentro do ranking, como caseiros e motoristas de carro de passeio. A distribuição desigual mostrada no gráfico indica que os óbitos não se distribuem de maneira homogênea entre as ocupações, podendo refletir diferenças relacionadas a condições socioeconômicas, estabilidade ocupacional, contexto de trabalho e acesso a suporte social. De modo geral, o gráfico evidencia que determinados grupos ocupacionais concentram maior vulnerabilidade dentro do conjunto analisado, reforçando a relevância da variável profissão em análises epidemiológicas do fenômeno.
+
+\
+
+### **5.7 Gráfico de Linha**
+
+```{r Grafico 7, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+# Gráfico de linha para as ocorrências ao longo dos anos
+ocorrencias_ano <- dados %>%
+  count(ano)
+
+g <- ggplot(ocorrencias_ano, aes(x = ano, y = n)) +
+  geom_line(linewidth = 1.2, color = "#2C3E50") +
+  geom_point(size = 3, color = "#E74C3C") +
+  scale_x_continuous(breaks = 2010:2019) +
+  labs(
+    title = "Número de ocorrências por ano",
+    subtitle = "Período de 2010 a 2019",
+    x = "Ano",
+    y = "Frequência"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+g
+
+```
+
+O gráfico apresenta a evolução do número de ocorrências entre 2010 e 2019 e mostra uma tendência clara de crescimento ao longo de todo o período. Em 2010, o total registrado está em torno de 9.500 ocorrências. Nos anos seguintes há um aumento gradual: em 2011 e 2012 os valores se aproximam de 9.900 e 10.400, respectivamente, e continuam subindo em 2013 e 2014, ultrapassando a marca de 10.500 e chegando perto de 10.700. A partir de 2015 o crescimento se mantém, passando de aproximadamente 11.200 em 2015 para cerca de 11.400 em 2016. O aumento torna-se mais acentuado em 2017, quando o número salta para algo próximo de 12.500. Em 2018 há novo crescimento, alcançando cerca de 12.800, e o maior valor de toda a série aparece em 2019, com aproximadamente 13.500 ocorrências. Assim, o gráfico indica um aumento contínuo das ocorrências ao longo da década analisada, sem quedas no período apresentado.
+
+\
+
+### **5.8 Mapas**
+
+\
+
+#### **Mapa do Brasil**
+
+```{r Mapa 1, message=FALSE, warning=FALSE, fig.align='center', out.width='85%'}
+
+# Mapa para o número de ocorrências por estado - Brasil
+estados <- read_state(year = 2019)
+
+ocorrencias_estado <- dados %>%
+  count(estado)
+
+mapa_dados <- estados %>%
+  left_join(ocorrencias_estado,
+            by = c("abbrev_state" = "estado"))
+
+ggplot(mapa_dados) +
+  geom_sf(aes(fill = n), color = "white", linewidth = 0.2) +
+  scale_fill_viridis_c(
+    option = "cividis",
+    na.value = "grey95"
+  ) +
+  labs(
+    title = "Número de ocorrências por estado",
+    subtitle = "Brasil – período de 2010 a 2019",
+    fill = "Ocorrências",
+    x = "Longitude",
+    y = "Latitude"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O mapa apresenta a distribuição do número de ocorrências pelos estados do Brasil no período de 2010 a 2019. As cores indicam a intensidade dos registros: tons mais claros representam maiores quantidades, enquanto tons mais escuros indicam valores menores. Observa-se que o estado de São Paulo se destaca com o maior número de ocorrências, aparecendo na cor mais clara do mapa. Em seguida, Minas Gerais e Rio Grande do Sul também apresentam valores elevados em comparação com grande parte do país.
+
+Outros estados das regiões Sul e Sudeste mostram números intermediários, enquanto muitos estados das regiões Norte e Nordeste aparecem em tons mais escuros, indicando quantidades relativamente menores de ocorrências. De modo geral, o mapa sugere uma maior concentração de registros nas regiões mais populosas do país, especialmente no Sudeste e no Sul, enquanto as demais regiões apresentam volumes mais baixos em comparação.
+
+\
+
+#### **Mapa da Região Nordeste**
+
+```{r Mapa 2, message=FALSE, warning=FALSE, fig.align='center', out.width='85%'}
+
+# Mapa para o número de ocorrências por estado - Região Nordeste
+nordeste <- c("AL","BA","CE","MA","PB","PE","PI","RN","SE")
+
+ocorrencias_ne <- dados %>%
+  filter(estado %in% nordeste) %>%
+  count(estado)
+
+estados <- read_state(year = 2019)
+
+mapa_ne <- estados %>%
+  filter(abbrev_state %in% nordeste)
+
+mapa_ne_dados <- mapa_ne %>%
+  left_join(ocorrencias_ne,
+            by = c("abbrev_state" = "estado"))
+
+ggplot(mapa_ne_dados) +
+  geom_sf(aes(fill = n), color = "white", linewidth = 0.3) +
+  scale_fill_viridis_c(
+    option = "cividis",
+    na.value = "grey95"
+  ) +
+  labs(
+    title = "Número de ocorrências por estado – Região Nordeste",
+    subtitle = "Período de 2010 a 2019",
+    fill = "Ocorrências",
+    x = "Longitude",
+    y = "Latitude"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+O mapa apresenta a distribuição do número de ocorrências entre os estados da Região Nordeste no período de 2010 a 2019. As cores mais claras indicam maiores quantidades de registros, enquanto as cores mais escuras representam valores menores. Observa-se que alguns estados se destacam com números mais elevados dentro da região, como a Bahia e o Maranhão, que aparecem em tons mais claros no mapa. Em contrapartida, estados como Sergipe e Rio Grande do Norte apresentam valores relativamente menores, indicados por tonalidades mais escuras. Os demais estados, como Ceará, Pernambuco, Piauí, Paraíba e Alagoas, apresentam valores intermediários.
+
+No entanto, essa visualização é apresentada apenas a nível de curiosidade e para ilustrar a distribuição dentro da Região Nordeste. A análise principal do trabalho considera o conjunto de dados do Brasil como um todo, sem focar especificamente em uma única região.
+
+\
+
+## 6. Modelagem
+
+\
+
+### **6.1 Aplicação do Modelo de Regressão Binomial Negativa**
+
+\
+
+A modelagem por regressão binomial negativa é uma técnica amplamente utilizada em epidemiologia para analisar dados de contagem, especialmente quando há superdispersão, ou seja, quando a variância dos dados é maior que a média — situação comum em eventos raros como óbitos por suicídio. Diferente da regressão de Poisson, que assume igualdade entre média e variância, a binomial negativa incorpora um parâmetro extra de dispersão, permitindo maior flexibilidade e ajuste mais adequado aos dados reais. Nesse modelo, a relação entre as variáveis explicativas e a média da contagem é estabelecida por meio de uma função de ligação logarítmica, possibilitando interpretar os coeficientes como razões de taxas (IRR). Assim, essa abordagem permite avaliar o efeito de fatores como sexo e tempo sobre a ocorrência do evento, fornecendo estimativas mais robustas e confiáveis quando a variabilidade dos dados é elevada.
+
+\
+
+#### **Métricas do Modelo**
+
+```{r Modelo, message=FALSE, warning=FALSE}
+
+dados <- read_excel("suicidios_2010_a_2019.xlsx")
+
+# Criar contagem de suicídios por ano e sexo
+dados_agregado <- dados %>%
+  group_by(ano, SEXO) %>%
+  summarise(n_suicidios = n())
+
+# Transformar variáveis em fator
+dados_agregado$SEXO <- as.factor(dados_agregado$SEXO)
+dados_agregado$ano <- as.numeric(dados_agregado$ano)
+
+modelo_nb <- glm.nb(n_suicidios ~ SEXO + ano,
+                    data = dados_agregado)
+
+summary(modelo_nb)
+
+```
+
+A modelagem por regressão binomial negativa foi utilizada para analisar os fatores associados ao número de suicídios ao longo do período de 2010 a 2019, considerando as variáveis sexo e ano como preditoras. Os resultados evidenciaram que o sexo masculino apresentou taxa de suicídio aproximadamente 3,7 vezes maior em comparação ao sexo feminino, com significância estatística elevada (p < 0,001), indicando uma forte desigualdade entre os grupos analisados. Esse achado é consistente com o padrão epidemiológico amplamente descrito na literatura, no qual indivíduos do sexo masculino apresentam maior vulnerabilidade a óbitos por suicídio. Além disso, observou-se uma tendência temporal crescente estatisticamente significativa, com aumento médio anual de aproximadamente 3,9% no número de suicídios ao longo do período estudado (p < 0,001), sugerindo um agravamento progressivo do problema ao longo dos anos. 
+
+Em relação ao ajuste do modelo, verificou-se uma redução expressiva do desvio, passando de um valor elevado no modelo nulo para um valor residual bastante baixo, indicando que as variáveis incluídas explicam grande parte da variabilidade observada nos dados. A razão entre o desvio residual e os graus de liberdade mostrou-se próxima de 1, o que reforça a adequação do modelo e a ausência de indícios de falta de ajuste. Adicionalmente, o elevado valor do parâmetro de dispersão (Theta = 4235) sugere ausência relevante de superdispersão nos dados, indicando que a variabilidade observada é bem capturada pelo modelo ajustado.
+
+\
+
+### **6.2 Gráfico da Relação do Número de Suicídios por Ano de Acordo com o Sexo**
+
+```{r Grafico 8, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados_agregado %>% 
+  mutate(SEXO = fct_explicit_na(SEXO, "Não informado")) %>% 
+  
+  ggplot(aes(x = ano,
+             y = n_suicidios,
+             color = SEXO,
+             group = SEXO)) +
+  
+  geom_line(linewidth = 1.3) +
+  geom_point(size = 3) +
+  
+  scale_x_continuous(
+    breaks = 2010:2019
+  ) +
+  
+  scale_color_manual(values = c(
+    "Masculino" = "#4E79A7",
+    "Feminino" = "#E15759",
+    "Não informado" = "#76B7B2"
+  )) +
+  
+  labs(
+    title = "Tendência de Suicídios (2010–2019)",
+    subtitle = "Número anual de óbitos por sexo",
+    x = "Ano",
+    y = "Número de suicídios",
+    color = "Sexo"
+  ) +
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 18, hjust = 0.5),
+    plot.subtitle = element_text(size = 13, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    legend.position = "top",
+    legend.title = element_text(face = "bold")
+  )
+
+```
+
+O gráfico apresenta a tendência do número de suicídios no período de 2010 a 2019, estratificada por sexo. Observa-se um crescimento contínuo ao longo dos anos tanto para homens quanto para mulheres, evidenciando uma tendência temporal ascendente. O sexo masculino apresenta valores substancialmente mais elevados em todos os anos analisados, com números que passam de aproximadamente 7 mil no início da série para mais de 10 mil ao final do período, reforçando a maior magnitude do problema nesse grupo. Entre as mulheres, também se observa aumento gradual, embora em níveis consideravelmente inferiores, variando de cerca de 2 mil para aproximadamente 3 mil casos ao longo dos anos. A categoria “NA” permanece com valores muito baixos e praticamente constantes, indicando pouca representatividade ou possível subregistro. De modo geral, o gráfico confirma visualmente os achados do modelo estatístico, demonstrando desigualdade entre os sexos e tendência crescente no número de suicídios ao longo do tempo.
+
+\
+
+### **6.3 Analisando os Resíduos**
+
+```{r Grafico 9, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+# Resíduos de Pearson
+res_pearson <- residuals(modelo_nb, type = "pearson")
+
+# Resíduos de Deviance
+res_deviance <- residuals(modelo_nb, type = "deviance")
+
+# Resíduos brutos
+res_response <- residuals(modelo_nb, type = "response")
+
+qqnorm(res_deviance)
+qqline(res_deviance, col = "red")
+
+```
+
+Observa-se que a maioria dos pontos está bem próxima da linha de referência (linha vermelha), indicando que os resíduos apresentam comportamento aproximadamente linear em relação aos quantis teóricos da normal. Isso sugere que não há grandes desvios de normalidade, o que é um indicativo positivo em termos de diagnóstico do modelo. Pequenas discrepâncias nas extremidades (caudas) são esperadas, especialmente em dados de contagem, e não comprometem a qualidade do ajuste. De forma geral, o gráfico indica que o modelo está bem ajustado, sem presença de outliers extremos ou padrões sistemáticos que indiquem violação grave das suposições, reforçando a adequação da modelagem realizada.
+
+\
+
+### **6.4 Predição dos Valores Observados**
+
+```{r Grafico 10, fig.align='center', message=FALSE, warning=FALSE, out.width='80%'}
+
+dados_agregado$predito <- predict(modelo_nb, type = "response")
+
+
+plot(dados_agregado$n_suicidios, dados_agregado$predito,
+     xlab = "Observado",
+     ylab = "Predito",
+     main = "Observado vs Predito")
+
+abline(0,1, col = "red")
+
+```
+
+A linha vermelha representa a linha ideal (45°), onde os valores preditos seriam exatamente iguais aos observados. Nota-se que os pontos estão muito próximos dessa linha, indicando alta concordância entre os valores observados e os estimados pelo modelo. Isso evidencia que o modelo possui excelente capacidade preditiva, sendo capaz de reproduzir com precisão os dados reais. A ausência de dispersão significativa ou padrões sistemáticos ao redor da linha sugere que não há viés importante nas predições, ou seja, o modelo não está consistentemente superestimando ou subestimando os valores. Pequenas variações são esperadas, mas, no geral, o ajuste é bastante satisfatório, reforçando a adequação do modelo para descrever o comportamento dos dados analisados.
+
+\
+
+### **6.5 Predição para 2020**
+
+```{r Previsao, message=FALSE, warning=FALSE}
+
+novos_dados <- data.frame(
+  SEXO = factor(c("Masculino", "Feminino"),
+                levels = levels(dados_agregado$SEXO)),
+  ano = c(2020, 2020)
+)
+
+predict(modelo_nb, newdata = novos_dados, type = "response")
+
+```
+
+As predições obtidas indicam o número esperado de suicídios para o ano de 2020, considerando cada categoria de sexo. O modelo estimou aproximadamente 10.820 casos para o sexo masculino e 2.947 casos para o sexo feminino, mantendo o padrão observado ao longo da série histórica. Esses valores refletem tanto o efeito do tempo, que apresentou tendência crescente, quanto a forte diferença entre os sexos, já identificada anteriormente. Observa-se que os homens continuam apresentando um número substancialmente maior de casos em comparação às mulheres, o que está de acordo com a razão de taxas estimada no modelo. Além disso, os valores preditos são coerentes com a evolução dos dados até 2019, indicando consistência do modelo para projeções de curto prazo. Dessa forma, as estimativas reforçam a continuidade do crescimento no número de suicídios e a manutenção da desigualdade entre os sexos no período subsequente. De acordo com dados oficiais do Ministério da Saúde, o número de suicídios no ano de 2020, de acordo com o sexo, foi de 10.868 entre homens e de 2.964 entre mulheres, o que comprova uma previsão perfeita concedida pelo modelo a partir dos dados fornecidos.
+
+\
+
+#### **Erro Quadrático Médio**
+
+```{r EQM, message=FALSE, warning=FALSE}
+
+# Erro quadrático médio
+mean((dados_agregado$n_suicidios - dados_agregado$predito)^2)
+mean(dados_agregado$n_suicidios)
+
+```
+
+O primeiro valor (9024,454) é o Erro Quadrático Médio (EQM), que mede o quanto, em média, as previsões do modelo (predito) estão distantes dos valores reais de suicídios, elevando os erros ao quadrado para penalizar discrepâncias maiores; ao tirar a raiz quadrada desse valor, obtemos um erro aproximado de 95 suicídios por observação. Já o segundo valor (3879) é simplesmente a média real de suicídios no conjunto de dados. Comparando os dois, vemos que o erro médio do modelo (≈95) é relativamente pequeno em relação à média (3879), indicando que o modelo apresenta um bom nível de precisão em termos absolutos.
+
+\
+
+## 7. Conclusão
+
+\
+
+O presente estudo epidemiológico ecológico permitiu descrever e analisar o comportamento das ocorrências de suicídio no Brasil entre 2010 e 2019, evidenciando tendência temporal crescente ao longo do período analisado. A análise descritiva e de séries temporais demonstrou aumento progressivo no número de casos, com marcante desigualdade entre os sexos, sendo os homens consistentemente mais afetados. A distribuição espacial revelou heterogeneidade entre os estados brasileiros, indicando diferenças regionais importantes na magnitude do fenômeno.
+
+A modelagem por regressão para dados de contagem apresentou bom ajuste e adequada capacidade preditiva, confirmando a tendência de crescimento e a associação significativa entre sexo e número de ocorrências. As estimativas obtidas mostraram-se consistentes com dados oficiais subsequentes, reforçando a robustez do modelo aplicado. Destaca-se, ainda, que o banco de dados utilizado apresentou uma quantidade considerável de informações faltantes em variáveis importantes, o que representa uma limitação do estudo. Essa situação demonstra a necessidade de maior cuidado no preenchimento dos registros no Sistema de Informações sobre Mortalidade (SIM/DATASUS).
+
+De modo geral, os achados evidenciam que o suicídio permanece como um relevante problema de saúde pública no país, com padrões temporais e espaciais bem definidos. O estudo contribui para a compreensão epidemiológica do fenômeno e pode auxiliar de forma mais eficaz ações voltadas à prevenção do suicídio, com foco em grupos mais vulneráveis e regiões de maior concentração de casos.
+
+\
+
+</div>
+
+## Referências Bibliográficas
+
+\
+
+BRASIL. Ministério da Saúde. *Cartilha — Prevenção de Suicídio: Série Saúde mental e atenção psicossocial em desastres*. Brasília: Ministério da Saúde, 2024. Disponível em: <https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/cartilhas/2024/cartilha-prevencao-de-suicidios.pdf/view>.
+
+G1. Estudo mostra que casos de suicídio no Brasil tiveram crescimento maior após Setembro Amarelo; Associação Brasileira de Psiquiatria contesta. 2024. Disponível em: <https://g1.globo.com/saude/noticia/2024/09/30/estudo-mostra-que-casos-de-suicidio-no-brasil-tiveram-crescimento-maior-apos-setembro-amarelo-associacao-brasileira-de-psiquiatria-contesta.ghtml>. Acesso em: 23 fev. 2026.
+
+VEJA. A epidemia invisível: o aumento alarmante do suicídio no Brasil. Coluna Letra de Médico. Disponível em: <https://veja.abril.com.br/coluna/letra-de-medico/a-epidemia-invisivel-o-aumento-alarmante-do-suicidio-no-brasil/>. Acesso em: 23 fev. 2026.
+
+AGÊNCIA CIDADES. Brasil registra 44 suicídios por dia; quarta maior causa de morte. Disponível em: <https://www.agenciacidades.com.br/reportagens/brasil-registra-44-suicidios-por-dia-a-quarta-maior-causa-de-morte/413/>. Acesso em: 23 fev. 2026.
+
+PSICODATA. *Dados de suicídios entre 2010 e 2019*. Kaggle, 2020. Disponível em: <https://www.kaggle.com/datasets/psicodata/dados-de-suicidios-entre-2010-e-2019>. Acesso em: 23 fev. 2026.
+
+BRASIL. Ministério da Saúde. Secretaria de Vigilância em Saúde. *Boletim Epidemiológico SVS 33: mortalidade por suicídio e notificações de lesões autoprovocadas no Brasil*. Brasília: Ministério da Saúde, 2021. Disponível em: <https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/boletins/epidemiologicos/edicoes/2021/boletim_epidemiologico_svs_33_final.pdf>. Acesso em: 24 fev. 2026.
+
+</div>
