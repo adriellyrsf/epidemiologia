@@ -9,6 +9,6 @@ Trabalho da disciplina de Epidemiologia (2025.1) - Estatística / UEPB.
 ### Sobre o Projeto
 Estudo ecológico sobre os padrões, perfil sociodemográfico e distribuição das ocorrências de suicídio no Brasil entre 2010 e 2019.
 
-### Tecnologias
+### Ferramentas e Linguagens
 * Linguagem: R (R Markdown)
 * Publicação: GitHub Pages
